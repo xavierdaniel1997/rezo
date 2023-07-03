@@ -1,0 +1,1 @@
+{"mappings":"ACCA,WAGI","sources":["index.d4d51629.css","index.css"],"sourcesContent":["* {\n  margin: 0;\n}\n\n#container {\n  background-color: #446eda;\n}\n\n/*# sourceMappingURL=index.d4d51629.css.map */\n","\r\n*{\r\n    margin: 0;\r\n}\r\n    #container{\r\n    background-color: #446eda;\r\n}"],"names":[],"version":3,"file":"index.d4d51629.css.map"}
