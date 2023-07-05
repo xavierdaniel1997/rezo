@@ -1,20 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-  "h1",
-  {id: "title", key: "h1"},
-  "Hello every one this is form React CDN"
+const Title = () => (
+  <h1 className="header" tabIndex="5">
+    This is react zero to hero 🚀🚀
+  </h1>
 );
-const heading2 = React.createElement(
-  "h2",
-  {id: "title", key: "h2"},
-  "This is heading @ 2"
-);
-const container = React.createElement("div", {id: "container"}, [
-  heading,
-  heading2,
-]);
-console.log(container);
+
+var xyw = 10;
+
+const HeadingComponent = () => {
+  return (
+    <>
+      <div>
+        <Title/>
+        <h1>This the HeadingComponent</h1>
+      </div>
+      <div>
+        <h1>Boombang team</h1>
+      </div>
+      <>
+      <h1>This is inside the React. Fragment</h1>
+      </>
+    </>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(container);
+root.render(<HeadingComponent />);
