@@ -5,3 +5,83 @@
     #container{
     background-color: #446eda;
 }
+
+
+/* Header Component */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f4f4f4;
+}
+.logo-container{
+    margin-left: 150px;
+    
+}
+.logo{
+    color: #ff4500;
+    border: 1px solid #ff4500;
+    padding: 10px;
+    /* align-items: center; */
+}
+.nav-items{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 150px;
+}
+.nav-item{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    cursor: pointer;
+}
+.nav-item li{
+    list-style: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* ResturentCard */
+
+.resturant-card-container{
+    width: 250px;
+    padding: 15px;
+}
+.resturant-card-container:hover{
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 0.5px solid rgb(153, 153, 153);
+    cursor: pointer;
+}
+.card-img-container{
+
+}
+.card-img{
+    width: 100%;
+}
+.res-detials{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.rating-distance{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.distance{
+    color: green;
+}
+
+/* Body */
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* justify-content: space-around; */
+    margin: 40px 150px;
+}
