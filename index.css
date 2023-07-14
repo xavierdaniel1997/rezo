@@ -23,8 +23,8 @@
     
 }
 .logo{
-    color: #ff4500;
-    border: 1px solid #ff4500;
+    color: #0723ac;
+    border: 1px solid #0723ac;
     padding: 10px;
     align-items: center;
 }
@@ -54,7 +54,6 @@
 .resturant-card-container:hover{
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border: 0.5px solid rgb(153, 153, 153);
     cursor: pointer;
 }
 .card-img-container{
@@ -131,6 +130,85 @@
     cursor: pointer;
 }
 
+
+/* shimmer-effect */
+.shimmer-loading-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+  
+.shimmer-card-container {
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    padding: 15px;
+    border-radius: 3px;
+    /* background: #dbdada; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+   }
+
+  .shimmer-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  
+  .shimmer-effect::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* .shimmer-card-content {
+    padding: 16px;
+  } */
+  .shimmer-card-img{
+    width: 100%;
+    height: 150px;
+    background-color: #dbdada;
+    border-radius: 5px;
+  }
+  .shimmer-card-title {
+    width: 80%;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    background-color: #dbdada;
+    border-radius: 5px;
+  }
+  
+  .shimmer-card-description {
+    width: 100%;
+    height: 20px;
+    background-color: #dbdada;
+    border-radius: 5px;
+  }
+  .shimmer-card-bottem-description{
+    width: 100%;
+    height: 35px;
+    background-color: #dbdada;
+    margin-top: 50px;
+    border-radius: 5px;
+  }
+  
 
 
 
