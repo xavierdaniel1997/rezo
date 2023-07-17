@@ -2,11 +2,15 @@ import {useState, useEffect} from "react";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import SearchBar from "./SearchBar";
+import NoRestaruent from "./NoRestaruent";
+import {Link, useParams} from "react-router-dom";
 
 const Body = () => {
   const [showAllRest, setShowAllRest] = useState([]);
   const [filteredRestaurents, setFilteredRestaurents] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const {resId} = useParams()
 
   const handleFilterTopRest = () => {
     const filteredList = filteredRestaurents.filter(
@@ -31,7 +35,7 @@ const Body = () => {
     setFilteredRestaurents(searchData);
   };
 
-  console.log("render");
+  // console.log("render");
 
   useEffect(() => {
     getRestaurents();
@@ -42,7 +46,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=9.948304038172601&lng=76.31970673799515&page_type=DESKTOP_WEB_LISTING"
     );
     const jsonData = await data.json();
-    console.log(jsonData);
+    // console.log(jsonData);
     setShowAllRest(jsonData?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurents(jsonData?.data?.cards[2]?.data?.data?.cards);
   };
@@ -54,18 +58,6 @@ const Body = () => {
     <div className="body">
       <div className="searh-and-filter-container">
         <div className="search-container">
-          {/* <input
-            className="search-box"
-            type="text"
-            placeholder="Search"
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-          />
-          <button className="search-btn" onClick={handleSearch}>
-            search
-          </button> */}
           <SearchBar
             handleSearch={handleSearch}
             handleSearchText={searchText}
@@ -103,13 +95,17 @@ const Body = () => {
         filteredRestaurents.length > 0 && (
           <div className="res-container">
             {filteredRestaurents.map((restaurants) => (
-              <ResturantCard key={restaurants.data.id} resData={restaurants} />
+              <Link key={restaurants.data.id} to={"/restaruent/"+restaurants.data.id} className="links">
+                <ResturantCard
+                  resData={restaurants}
+                />
+              </Link>
             ))}
           </div>
         )
       )}
       {filteredRestaurents.length === 0 && searchText !== "" && (
-        <h1>No search data found.</h1>
+        <NoRestaruent />
       )}
     </div>
   );

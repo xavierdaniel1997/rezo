@@ -1,0 +1,71 @@
+.restaruantmenu-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  margin-top: 20px;
+}
+.name-price-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.green-box {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border: 2px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.round-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+}
+.name-price-desc-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.item-name{
+    font-size: 20px;
+    font-weight: 800;
+}
+.item-price{
+    font-size: 18px;
+}
+.img-button-container{
+    
+}
+.img-container{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.item-image{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.item-btn{
+    position: absolute;
+    bottom: 30px;
+    width: 95px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    color: rgb(46, 199, 46);
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}

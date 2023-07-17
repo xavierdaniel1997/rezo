@@ -10,7 +10,7 @@ import {CDN_IMG_URL} from "../utils/config"
       deliveryTime,
     } = resData?.data;
     return (
-      <div className="resturant-card-container">
+      <div className="resturant-card-container ">
         <div className="card-img-container">
           <img
             className="card-img"

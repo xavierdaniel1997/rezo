@@ -1,0 +1,39 @@
+.offers-coupens-container{
+    display: flex;
+    gap: 3px;
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    align-items: center;
+}
+.offer-tag {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid gray;
+  }
+  
+  .offer {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .offer-header-coupen-code{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: start;
+    padding-left: 5px;
+  }
+  .offer-name{
+    font-size: 16px;
+    font-weight: 800;
+    color: #515151;
+  }
+  .coupen-name{
+    font-size: 11px;
+    font-weight: 800;
+    color: #515151;
+  }

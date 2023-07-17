@@ -4,8 +4,8 @@ const numberOfShimmer = 8;
 const Shimmer = () => {
   return (
     <>
-      {[...Array(numberOfShimmer)].map((index) => (
-        <div className="shimmer-card-container">
+      {Array(8).fill("").map((e, index) => (
+        <div className="shimmer-card-container" key={index}>
           <div className="shimmer-effect shimmer-card">
             <div className="shimmer-card-content">
               <div className="shimmer-card-img" />
