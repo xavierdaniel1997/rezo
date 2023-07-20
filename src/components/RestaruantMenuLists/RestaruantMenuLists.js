@@ -4,17 +4,17 @@ import {CDN_IMG_URL} from "../../utils/config"
 const RestaruantMenuLists = ({itemCards}) => {
   return (
     <>
-      {itemCards.map((itemCard) => {
-        const {name, description, price, imageId} = itemCard.card.info;
+      {itemCards.map((itemCard, index) => {
+        const {name, description, price, imageId} = itemCard?.card?.info;
         return (
-          <div className="restaruantmenu-container">
+          <div className="restaruantmenu-container" key={index}>
             <div className="name-price-desc">
               <div className="green-box">
                 <div className="round-dot"></div>
               </div>
               <div className="name-price-desc-wrapper">
                 <p className="item-name">{name}</p>
-                <p className="item-price">₹ {price}</p>
+                <p className="item-price">₹ {price /100}</p>
                 <span className="item-desc">{description}
                 </span>
               </div>

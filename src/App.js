@@ -1,4 +1,4 @@
-import React, {Children} from "react";
+
 import ReactDOM from "react-dom/client";
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 
@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import Error from "./components/Error";
 import RestaruentMenu from "./components/RestaruentMenu";
+import ProfileFn from "./components/ProfileFn";
 
 const AppLayout = () => {
   return (
@@ -32,6 +33,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs />,
+        children: [
+          {
+            path: "profile",
+            element: <ProfileFn/>
+          }
+        ]
       },
       {
         path: "/restaruent/:resId",

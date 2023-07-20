@@ -48,7 +48,8 @@ const RestaruentMenu = () => {
 
   // const {cards} = restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
 
-  const {itemCards} = restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card?.card;
+  const {itemCards} = restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card 
+  // const {itemCards : itemCards2} = restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
   // console.log(itemCards);
   
   const {offers} =
@@ -78,7 +79,7 @@ const RestaruentMenu = () => {
       </div>
       <hr />
       <div className="restaruantMenuLists-container">
-        <RestaruantMenuLists itemCards={itemCards}/>
+        <RestaruantMenuLists itemCards={itemCards} />
       </div>
     </div>
   );
