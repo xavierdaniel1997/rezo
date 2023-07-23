@@ -1,5 +1,5 @@
-
 import ReactDOM from "react-dom/client";
+import {lazy, Suspense} from "react";
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 
 import Header from "./components/Header";
@@ -9,6 +9,13 @@ import AboutUs from "./components/AboutUs";
 import Error from "./components/Error";
 import RestaruentMenu from "./components/RestaruentMenu";
 import ProfileFn from "./components/ProfileFn";
+import Shimmer from "./components/Shimmer";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// import Grocery from "./components/Grocery";
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   return (
@@ -36,9 +43,17 @@ const appRouter = createBrowserRouter([
         children: [
           {
             path: "profile",
-            element: <ProfileFn/>
-          }
-        ]
+            element: <ProfileFn />,
+          },
+        ],
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
         path: "/restaruent/:resId",

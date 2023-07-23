@@ -1,3 +1,5 @@
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const SearchBar = ({handleSearch, handleSearchText, handleSetSearchText}) => {
@@ -5,7 +7,7 @@ const SearchBar = ({handleSearch, handleSearchText, handleSetSearchText}) => {
   return (
     <>
       <input
-        className="search-box"
+        className="w-72 outline-none text-lg text-gray-600"
         type="text"
         placeholder="Search"
         value={handleSearchText}
@@ -13,8 +15,8 @@ const SearchBar = ({handleSearch, handleSearchText, handleSetSearchText}) => {
           handleSetSearchText(e.target.value);
         }}
       />
-      <button className="search-btn" onClick={handleSearch}>
-        search
+      <button className="text-gray-400 text-lg cursor-pointer" onClick={handleSearch}>
+        <FontAwesomeIcon icon={faSearch}/>
       </button>
     </>
   );

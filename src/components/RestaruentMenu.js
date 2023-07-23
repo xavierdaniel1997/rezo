@@ -2,31 +2,28 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {CDN_IMG_URL, MENU_API} from "../utils/config";
 
-import "./RestaruentMenu.css";
+// import "./RestaruentMenu.css";
 
 import Shimmer from "./Shimmer";
 import RestarunetMenuFirstCard from "./RestarunetMenuFirstCard/RestarunetMenuFirstCard";
 import RestaruantMenuOffer from "./RestaruantMenuOffer/RestaruantMenuOffer";
 import SlidingButton from "./SlidingButton/SlidingButton";
 import RestaruantMenuLists from "./RestaruantMenuLists/RestaruantMenuLists";
+import useRestaurantMenu from "../Hooks/useRestaurantMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
 
 const RestaruentMenu = () => {
-  const [restaurantInfo, setRestaurantInfo] = useState(null);
-  const {resId} = useParams();
-  useEffect(() => {
-    getRestaurantInfoData();
-  }, []);
 
-  const getRestaurantInfoData = async () => {
-    const data = await fetch(MENU_API + resId);
-    const json = await data.json();
-    // console.log(json);
-    setRestaurantInfo(json?.data);
-  };
+  // const [restaurantInfo, setRestaurantInfo] = useState(null);
+  const {resId} = useParams();
+
+  const restaurantInfo = useRestaurantMenu(resId);
+
 
   if (restaurantInfo === null) {
     return (
-      <div className="shimmer-loading-container res-menu-shimmer">
+      <div className="mx-96 my-11 flex flex-wrap gap-9 mt-8 mb-16 justify-start">
         <Shimmer />
       </div>
     );
@@ -56,7 +53,8 @@ const RestaruentMenu = () => {
     restaurantInfo?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
 
   return (
-    <div className="restaruant-container">
+    <div className="mx-96 my-11">
+      <div className="border-dashed border-b">
       <RestarunetMenuFirstCard
         name={name}
         city={city}
@@ -66,19 +64,21 @@ const RestaruentMenu = () => {
         avgRatingString={avgRatingString}
         totalRatingsString={totalRatingsString}
       />
-      <div className="time-rate">
-        <span>{sla.maxDeliveryTime} MINS</span>
-        <span>{costForTwoMessage}</span>
       </div>
-      <div className="restaruantMenuOffer-main-container">
+      
+      <div className="mt-3 flex gap-4">
+        <div className="text-zinc-600"><FontAwesomeIcon icon={faClock}/> <span className="font-bold">{sla.maxDeliveryTime} MINS</span> </div>
+        <div className="text-zinc-600"><FontAwesomeIcon icon={faIndianRupeeSign}/> <span className="font-bold">{costForTwoMessage}</span></div>
+      </div>
+      <div className="mt-4 mb-6 flex  gap-2 overflow-hidden">
         <RestaruantMenuOffer offers={offers} />
       </div>
-      <div className="slidingbtn-container">
+      {/* <div className="slidingbtn-container">
         <h4>Veg Only</h4>
         <SlidingButton />
-      </div>
+      </div> */}
       <hr />
-      <div className="restaruantMenuLists-container">
+      <div className="mt-8">
         <RestaruantMenuLists itemCards={itemCards} />
       </div>
     </div>
