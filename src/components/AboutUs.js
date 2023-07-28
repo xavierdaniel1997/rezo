@@ -3,6 +3,8 @@ import { Outlet, json } from 'react-router-dom'
 import ProfileFn from './ProfileFn'
 import { Component } from 'react'
 import ProfileClass from './ProfileClass'
+import userContext from '../utils/userContext'
+import { h1 } from 'fontawesome'
 
 
 class AboutUs extends Component{
@@ -33,8 +35,11 @@ class AboutUs extends Component{
   render() {
     // console.log("parent render");
     return (
-      <div style={{margin: '50px 100px'}}>
+      <div className='mx-52 my-10'>
           <h1>About-Us</h1>
+          <userContext.Consumer>
+            {({userName}) => <h1 className='font-extrabold text-blue-500 text-4xl'>{userName.name} - {userName.email}</h1>}
+          </userContext.Consumer>
           <p>this is the about us page only for learning namaste react js</p>
           {/* <h1>{this.state.userInfo.name}</h1> */}
           <ProfileFn/>

@@ -11,8 +11,9 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
       costForTwoString,
       avgRating,
       deliveryTime,
+      aggregatedDiscountInfoV3,
       area
-    } = resData?.data;
+    } = resData;
     return (
       <div className="w-64 hover:scale-95 transition-transform">
         <div className="relative">
@@ -24,7 +25,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
             }
             alt=""
           />
-          <h1 className="absolute bottom-0 left-0 right-0 text-white font-extrabold text-2xl p-2  rounded-b-2xl">UPTO ₹{costForTwo / 100}</h1>
+          <h1 className="absolute bottom-0 left-0 right-0 text-white font-extrabold text-2xl p-2  rounded-b-2xl">UPTO ₹{aggregatedDiscountInfoV3?.header}</h1>
         </div>
         <div className="px-2 pt-2">
           <h3 className="font-bold text-xl text-gray-700 overflow-hidden whitespace-nowrap w-56 md:w-auto">{name}</h3>
@@ -42,6 +43,23 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
       </div>
     );
   };
+
+  // Higher Order Component
+
+  // input = RestaurantCard =>> output = RestaurantCardPromoted
+
+  export const withPromotedLabel = (ResturantCard) => {
+
+    return (props) => {
+      return (
+        <div>
+          <label className="absolute z-10 font-bold bg-black text-white text-sm p-2 rounded-r-lg opacity-80 ">PROMOTED</label>
+          <ResturantCard {...props}/>
+        </div>
+      )
+    }
+
+  }
   
   export default ResturantCard;
 

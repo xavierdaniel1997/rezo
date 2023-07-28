@@ -1,29 +1,41 @@
 import ReactDOM from "react-dom/client";
-import {lazy, Suspense} from "react";
+import {lazy, Suspense, useState} from "react";
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import AboutUs from "./components/AboutUs";
+// import AboutUs from "./components/AboutUs";
 import Error from "./components/Error";
 import RestaruentMenu from "./components/RestaruentMenu";
 import ProfileFn from "./components/ProfileFn";
 import Shimmer from "./components/Shimmer";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import UserContext from "./utils/userContext";
 
 // import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
+const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const AppLayout = () => {
+  const [users, setUsers] = useState({
+    name: "Daniel",
+    email: "daniel@gmail.com",
+  });
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <>
+      <UserContext.Provider
+        value={{
+          userName: users,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </>
   );
 };
 
@@ -39,7 +51,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <AboutUs />,
+        element: (
+          <Suspense fallback={<h1>Loading ...</h1>}>
+            <AboutUs />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile",
