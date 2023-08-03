@@ -1,8 +1,23 @@
 import React, {useState} from "react";
 import {CDN_IMG_URL} from "../utils/config";
 
+import {useDispatch, useSelector} from "react-redux"
+import { addItem } from "../redux/cartSlice";
+import { set } from "mongoose";
+
 const RestaruantCategoryList = ({itemLists}) => {
-//   console.log({itemLists});
+
+
+  const dispatch = useDispatch()
+  const cartItems = useSelector((store) => store.cart.items)
+  console.log("additem", cartItems);
+
+  const [isAddItem, setIsAddItem] = useState(false)
+
+  const handleAddFoodItem = (itemLists) => {
+    dispatch(addItem(itemLists))
+  }
+
 
   return (
     <div className="flex justify-between gap-7 py-3 items-center border-b">
@@ -29,8 +44,8 @@ const RestaruantCategoryList = ({itemLists}) => {
             alt=""
             className="w-40 h-24 rounded-lg"
           />
-          <button className="absolute top-[75] font-bold text-green-600 bg-slate-100 px-6 py-1 rounded-md">
-            ADD
+          <button className="absolute top-[75] font-bold text-green-600 bg-slate-100 px-6 py-1 rounded-md hover:text-green-800 hover:bg-slate-300" onClick={() => handleAddFoodItem(itemLists)}>
+           ADD
           </button>
         </div>
       </div>

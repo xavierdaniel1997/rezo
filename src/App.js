@@ -11,8 +11,12 @@ import RestaruentMenu from "./components/RestaruentMenu";
 import ProfileFn from "./components/ProfileFn";
 import Shimmer from "./components/Shimmer";
 
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import UserContext from "./utils/userContext";
+import Cart from "./components/Cart";
 
 // import Grocery from "./components/Grocery";
 
@@ -26,6 +30,7 @@ const AppLayout = () => {
   });
   return (
     <>
+    <Provider store={store}>
       <UserContext.Provider
         value={{
           userName: users,
@@ -35,6 +40,7 @@ const AppLayout = () => {
         <Outlet />
         <Footer />
       </UserContext.Provider>
+      </Provider>
     </>
   );
 };
@@ -75,6 +81,10 @@ const appRouter = createBrowserRouter([
         path: "/restaruent/:resId",
         element: <RestaruentMenu />,
       },
+      {
+        path: "/cart",
+        element: <Cart/>
+      }
     ],
   },
 ]);

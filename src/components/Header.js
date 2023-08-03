@@ -4,17 +4,22 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
   faBagShopping,
   faBuilding,
+  faCartShopping,
   faHouse,
   faLeaf,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import useOnlineStatus from "../Hooks/useOnlineStatus";
 import UserContext from "../utils/userContext";
+import {useSelector} from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const {userName} = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
+
 
   const onlineStatus = useOnlineStatus();
   // console.log(isLoggedIn);
@@ -57,10 +62,14 @@ const Header = () => {
               <li onClick={() => setIsLoggedIn(true)}>SIGN IN</li>
             )}
           </div>
-          <div className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faBagShopping} />
-            <li>CART</li>
-          </div>
+          <Link to="/cart">
+            <div className="flex items-center gap-2">
+              <FontAwesomeIcon icon={faCartShopping} />
+              <li className="bg-green-800 font-bold text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">
+                {cartItems.length}
+              </li>
+            </div>
+          </Link>
         </ul>
       </div>
     </div>
