@@ -8,6 +8,7 @@ const SearchBar = ({handleSearch, handleSearchText, handleSetSearchText}) => {
     <>
       <input
         className="w-72 outline-none text-lg text-gray-600"
+        data-testid="serchInput"
         type="text"
         placeholder="Search"
         value={handleSearchText}
@@ -15,7 +16,8 @@ const SearchBar = ({handleSearch, handleSearchText, handleSetSearchText}) => {
           handleSetSearchText(e.target.value);
         }}
       />
-      <button className="text-gray-400 text-lg cursor-pointer" onClick={handleSearch}>
+      <button data-testid="searchBtn" className="text-gray-400 text-lg cursor-pointer" onClick={handleSearch}>
+      
         <FontAwesomeIcon icon={faSearch}/>
       </button>
     </>

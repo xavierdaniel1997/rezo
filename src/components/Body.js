@@ -41,11 +41,11 @@ const Body = () => {
     const data = await fetch(NEW_RES_DATA_API);
     const jsonData = await data.json();
     setShowAllRest(
-      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredRestaurents(
-      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants 
     );
   };

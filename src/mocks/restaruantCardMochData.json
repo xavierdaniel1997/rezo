@@ -1,0 +1,81 @@
+{
+    "id": "53844",
+    "name": "Brindhavan Vegetarian Restaurant",
+    "cloudinaryImageId": "jaj8fxbvtvxruxbryvfd",
+    "locality": "Chakkalakkal",
+    "areaName": "Palarivattom",
+    "costForTwo": "₹300 for two",
+    "cuisines": [
+        "South Indian",
+        "Chinese",
+        "North Indian"
+    ],
+    "avgRating": 4.5,
+    "veg": true,
+    "feeDetails": {
+        "restaurantId": "53844",
+        "fees": [
+            {
+                "name": "BASE_DISTANCE",
+                "fee": 5200
+            },
+            {
+                "name": "BASE_TIME"
+            },
+            {
+                "name": "ANCILLARY_SURGE_FEE"
+            }
+        ],
+        "totalFee": 5200
+    },
+    "parentId": "6450",
+    "avgRatingString": "4.5",
+    "totalRatingsString": "10K+",
+    "sla": {
+        "deliveryTime": 40,
+        "lastMileTravel": 6.3,
+        "serviceability": "SERVICEABLE",
+        "slaString": "40 mins",
+        "lastMileTravelString": "6.3 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2023-08-07 22:30:00",
+        "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "aggregatedDiscountInfoV3": {
+        "discountCalloutInfo": {
+            "message": "Free Delivery",
+            "logoCtx": {
+                "logo": "v1655895371/free_delivery_logo_hqipbo.png"
+            }
+        }
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+}

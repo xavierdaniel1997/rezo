@@ -15,7 +15,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
       area
     } = resData;
     return (
-      <div className="w-64 hover:scale-95 transition-transform">
+      <div data-testid="resCard" className="w-64 hover:scale-95 transition-transform">
         <div className="relative">
           <img
             className="rounded-2xl h-44 object-cover"

@@ -17,6 +17,7 @@ import store from "./redux/store";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import UserContext from "./utils/userContext";
 import Cart from "./components/Cart";
+import ContactUs from "./components/ContactUs";
 
 // import Grocery from "./components/Grocery";
 
@@ -68,6 +69,10 @@ const appRouter = createBrowserRouter([
             element: <ProfileFn />,
           },
         ],
+      },
+      {
+        path: "/contactus",
+        element: <ContactUs />,
       },
       {
         path: "/grocery",
